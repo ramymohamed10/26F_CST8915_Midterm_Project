@@ -2,14 +2,14 @@
 
 ## Midterm Project: Extending the Algonquin Pet Store with an Order Analytics Microservice
 
-| | |
-|---|---|
-| **Semester** | Fall 2026 |
-| **Release Week** | Week 6 (week beginning October 12, 2026) |
-| **Due Date** | Week 7 (week beginning October 19, 2026); see Brightspace for the exact date and time. All times are Eastern Time (America/Toronto). |
-| **Weight** | 15% of final grade |
-| **Type** | Group Assignment (3 students) |
-| **Submission** | Brightspace |
+|                  |                                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Semester**     | Fall 2026                                                                                                    |
+| **Release Week** | October 14, 2026                                                                                             |
+| **Due Date**     | October 23, 2026; see Brightspace for the exact date and time. All times are Eastern Time (America/Toronto). |
+| **Weight**       | 15% of final grade                                                                                           |
+| **Type**         | Group Assignment (3 students)                                                                                |
+| **Submission**   | Brightspace                                                                                                  |
 
 ---
 
@@ -27,17 +27,17 @@ You will test the full application **locally** and then deploy all services to *
 
 ### Existing Services (provided)
 
-| Service | Language | Port | Role |
-|---------|----------|------|------|
-| **store-front** | Vue.js | 8080 (dev) / 80 (prod) | Customer-facing web application |
-| **order-service** | Node.js | 3000 | Receives orders via REST, publishes to RabbitMQ |
-| **product-service** | Python | 3030 | Serves product catalog via REST |
-| **RabbitMQ** | — | 5672 / 15672 | Message broker (backing service) |
+| Service             | Language | Port                   | Role                                            |
+| ------------------- | -------- | ---------------------- | ----------------------------------------------- |
+| **store-front**     | Vue.js   | 8080 (dev) / 80 (prod) | Customer-facing web application                 |
+| **order-service**   | Node.js  | 3000                   | Receives orders via REST, publishes to RabbitMQ |
+| **product-service** | Python   | 3030                   | Serves product catalog via REST                 |
+| **RabbitMQ**        | —        | 5672 / 15672           | Message broker (backing service)                |
 
 ### New Service (you build this)
 
-| Service | Language | Port | Role |
-|---------|----------|------|------|
+| Service                     | Language    | Port | Role                                                  |
+| --------------------------- | ----------- | ---- | ----------------------------------------------------- |
 | **order-analytics-service** | Your choice | 4000 | Consumes orders from RabbitMQ, provides analytics API |
 
 ---
@@ -73,13 +73,13 @@ Use the updated `order-service` from Labs 2 and 3 as your starting point. Keep i
 
 Build a new microservice that connects to RabbitMQ, consumes orders from `order_queue`, and exposes the following REST API endpoints:
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/health` | Health check — returns service status |
-| `GET` | `/orders` | List all consumed orders |
-| `GET` | `/analytics/summary` | Total orders, total revenue, and average order value |
-| `GET` | `/analytics/products` | Orders grouped by product name with count and revenue |
-| `GET` | `/analytics/top-products` | Top 3 products ranked by total quantity sold |
+| Method | Endpoint                  | Description                                           |
+| ------ | ------------------------- | ----------------------------------------------------- |
+| `GET`  | `/health`                 | Health check — returns service status                 |
+| `GET`  | `/orders`                 | List all consumed orders                              |
+| `GET`  | `/analytics/summary`      | Total orders, total revenue, and average order value  |
+| `GET`  | `/analytics/products`     | Orders grouped by product name with count and revenue |
+| `GET`  | `/analytics/top-products` | Top 3 products ranked by total quantity sold          |
 
 **Expected response examples:**
 
@@ -128,12 +128,12 @@ Your service must connect to RabbitMQ and continuously listen for messages. It i
 
 Your new service must follow the first four factors of the 12-Factor App methodology:
 
-| Factor | Requirement |
-|--------|-------------|
-| **I. Codebase** | Own GitHub repository for the order-analytics-service |
-| **II. Dependencies** | All dependencies declared in a manifest file (`package.json`, `requirements.txt`, etc.) |
-| **III. Config** | RabbitMQ connection string and port configured via environment variables / `.env` file |
-| **IV. Backing Services** | RabbitMQ treated as an attached resource via connection string |
+| Factor                   | Requirement                                                                             |
+| ------------------------ | --------------------------------------------------------------------------------------- |
+| **I. Codebase**          | Own GitHub repository for the order-analytics-service                                   |
+| **II. Dependencies**     | All dependencies declared in a manifest file (`package.json`, `requirements.txt`, etc.) |
+| **III. Config**          | RabbitMQ connection string and port configured via environment variables / `.env` file  |
+| **IV. Backing Services** | RabbitMQ treated as an attached resource via connection string                          |
 
 ---
 
@@ -152,13 +152,13 @@ Before deploying to Azure, verify the **entire application** works on your local
 
 Deploy the complete Algonquin Pet Store (including your new service) to Azure using the following architecture:
 
-| Service | Azure Service | Notes |
-|---------|--------------|-------|
-| **RabbitMQ** | Azure VM | Same setup as Lab 2/3 |
-| **order-service** | Azure App Service | Node.js runtime |
-| **product-service** | Azure App Service | Python runtime (or your chosen language) |
-| **order-analytics-service** | Azure App Service | Your chosen runtime |
-| **store-front** | Azure Static Web Apps | With GitHub Actions CI/CD |
+| Service                     | Azure Service         | Notes                                    |
+| --------------------------- | --------------------- | ---------------------------------------- |
+| **RabbitMQ**                | Azure VM              | Same setup as Lab 2/3                    |
+| **order-service**           | Azure App Service     | Node.js runtime                          |
+| **product-service**         | Azure App Service     | Python runtime (or your chosen language) |
+| **order-analytics-service** | Azure App Service     | Your chosen runtime                      |
+| **store-front**             | Azure Static Web Apps | With GitHub Actions CI/CD                |
 
 **Requirements:**
 - All services must be properly configured and communicate correctly once deployed
@@ -177,12 +177,12 @@ Each group must prepare **a short video presentation (5 to 10 minutes)** coverin
 4. A live demo of the application running on **Azure** — show all deployed services, place orders, and verify analytics
 5. A walkthrough of your architecture diagram
 
-| Requirement | Details |
-|-------------|---------|
-| **Length** | 5 to 10 minutes |
-| **Participation** | All group members must participate and present |
-| **Upload** | YouTube (unlisted) |
-| **Link** | Include the video link in your `README.md` file on GitHub |
+| Requirement        | Details                                                      |
+| ------------------ | ------------------------------------------------------------ |
+| **Length**         | 5 to 10 minutes                                              |
+| **Participation**  | All group members must participate and present               |
+| **Upload**         | YouTube (unlisted)                                           |
+| **Link**           | Include the video link in your `README.md` file on GitHub    |
 | **Recording Tool** | [OBS Studio](https://obsproject.com/) (free, cross-platform) |
 
 ---
@@ -224,14 +224,14 @@ Submit your **GitHub Repository URL** on Brightspace by the due date.
 
 ## Marking Rubric
 
-| Criteria | Weight | Description |
-|----------|:------:|-------------|
-| **Order Analytics Service Implementation** | 25% | Service correctly consumes from RabbitMQ and all REST API endpoints return accurate data |
-| **12-Factor App Compliance** | 15% | Separate repository, explicit dependencies, environment-based configuration, RabbitMQ as attached resource |
-| **Local Testing** | 15% | Full application runs locally with all services communicating correctly |
-| **Azure Deployment** | 25% | All services deployed and working on Azure (App Service + Static Web Apps + VM for RabbitMQ) |
-| **Video Presentation** | 20% | Clear explanation, live demos (local + Azure), architecture walkthrough, and equal participation |
-| | **100%** | |
+| Criteria                                   |  Weight  | Description                                                                                                |
+| ------------------------------------------ | :------: | ---------------------------------------------------------------------------------------------------------- |
+| **Order Analytics Service Implementation** |   25%    | Service correctly consumes from RabbitMQ and all REST API endpoints return accurate data                   |
+| **12-Factor App Compliance**               |   15%    | Separate repository, explicit dependencies, environment-based configuration, RabbitMQ as attached resource |
+| **Local Testing**                          |   15%    | Full application runs locally with all services communicating correctly                                    |
+| **Azure Deployment**                       |   25%    | All services deployed and working on Azure (App Service + Static Web Apps + VM for RabbitMQ)               |
+| **Video Presentation**                     |   20%    | Clear explanation, live demos (local + Azure), architecture walkthrough, and equal participation           |
+|                                            | **100%** |                                                                                                            |
 
 ---
 
